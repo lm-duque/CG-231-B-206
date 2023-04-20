@@ -23,7 +23,7 @@ var material = new THREE.MeshPhongMaterial({ color: 0xCC99FF });
 var sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
 
-// Datos de Escalado, Rotacion y Traslado
+// Datos de Escalado, Rotación y Traslado
 const Sx = 0.5; // Escalado en X
 const Sy = 0.5; // Escalado en Y
 const Sz = 3; // Escalado en Z
@@ -34,11 +34,17 @@ const Rz = 60 * Math.PI / 180; // Angulo en radianes a rotar eje z
 
 // Escalado de la esfera
 sphere.scale.set(Sx, Sy, Sz);
+/*vt = (0, 0, Sz);
+vs = (Sx, Sy, Sz);
+EscaladoReal(sphere, vt, vs);*/
 
-// Rotacion de la esfera
+// Rotación de la esfera
 sphere.rotation.set(-Rx, Ry, Rz);
+/*RotacionReal(sphere, vt, 'X', -Rx);
+RotacionReal(sphere, vt, 'Y', Ry);
+RotacionReal(sphere, vt, 'Z', Rz);*/
 
-// Traslacion de la esfera
+// Traslación de la esfera
 sphere.translateZ(Tz);
 
 // ** Luz **
@@ -46,7 +52,7 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(-1, 2, 4);
 scene.add(light);
 
-// ** Cuadricula **
+// ** Cuadrícula **
 const size = 150;
 const divisions = 160;
 const axesHelper = new THREE.AxesHelper(1000);
